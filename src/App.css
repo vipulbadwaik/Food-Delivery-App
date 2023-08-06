@@ -36,7 +36,7 @@
     
      background-color: #D2E9E9;
      padding: 10px;
-     margin: 10px;
+     margin: 20px;
      border-radius: 10px;
      transition: all ease .5s;
 }
@@ -66,6 +66,7 @@
 
 .search{
     margin: 10px;
+   
 }
 
 .filter-btn{
@@ -81,4 +82,33 @@
 .filter-btn:hover{
     background-color: red;
     box-shadow: 0px 0px 10px black;
+}
+
+.shimmer-card{
+    width: 200px;
+    height: 400px;
+    margin: 30px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 10px;
+
+}
+
+.shimmer-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.Login-btn{
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-area{
+   margin: 15px;
+}
+
+.filter{
+    display: flex;
 }

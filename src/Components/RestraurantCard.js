@@ -9,9 +9,10 @@ const ResCard = (props) => {
       name,
       avgRating,
       cuisines,
+      
       costForTwo,
       deliveryTime,
-    } = resData?.data;
+    } = resData;
   
     return (
       <div className="rescard">
