@@ -6,7 +6,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [listOfRestraunt, setListOfRestraunt] = useState([]);
 
-  const [filterRes,setFilterRes] = useState([]);
+  const [filterRes, setFilterRes] = useState([]);
 
   const [searchRestra, setSearchRestra] = useState("");
 
@@ -25,7 +25,9 @@ const Body = () => {
     setListOfRestraunt(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilterRes(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRes(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //Conditional Rendering
@@ -50,9 +52,9 @@ const Body = () => {
               console.log(searchRestra);
 
               const filterRestra = listOfRestraunt.filter((res) =>
-                res?.info?.name?.toLowerCase().includes(
-                  searchRestra.toLowerCase()
-                )
+                res?.info?.name
+                  ?.toLowerCase()
+                  .includes(searchRestra.toLowerCase())
               );
               setFilterRes(filterRestra);
             }}
@@ -65,9 +67,9 @@ const Body = () => {
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
-              (res) => res.data.avgRating > 4
+              (res) => res?.info?.avgRating > 4
             );
-            setListOfRestraunt(filteredList);
+            setFilterRes(filteredList);
           }}
         >
           Top Rated restaurant
