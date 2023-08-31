@@ -2,6 +2,7 @@ import ResCard from "./RestraurantCard";
 import resObj from "../utils/MockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfRestraunt, setListOfRestraunt] = useState([]);
@@ -29,6 +30,8 @@ const Body = () => {
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+   console.log(listOfRestraunt);
 
   //Conditional Rendering
 
@@ -77,7 +80,7 @@ const Body = () => {
       </div>
       <div className="Restra">
         {filterRes.map((restaurant) => (
-          <ResCard key={restaurant?.info.id} resData={restaurant?.info} />
+         <Link to={"/restaurant/" + restaurant.data.id}> <ResCard key={restaurant?.info.id} resData={restaurant?.info} /></Link>
         ))}
       </div>
     </div>

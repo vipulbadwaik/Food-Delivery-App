@@ -13,7 +13,7 @@ const ResCard = (props) => {
     deliveryTime,
   } = resData;
 
-  console.log(resData);
+  //console.log(resData);
 
   return (
     <div className="rescard">

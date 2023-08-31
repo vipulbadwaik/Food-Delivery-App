@@ -11,6 +11,7 @@ import "./App.css";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Header from "./Components/Header";
+import RestaurantMenu from './Components/RestaurantMenu';
 
 const App = () => {
   return (
@@ -37,6 +38,10 @@ const App = () => {
       {
         path : "/contact",
         element: <Contact/>
+      },
+      {
+        path : "/restaurant/:resId",
+        element: <RestaurantMenu/>
       }
     ]
   },
