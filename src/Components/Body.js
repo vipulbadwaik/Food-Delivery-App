@@ -31,7 +31,7 @@ const Body = () => {
     );
   };
 
-   console.log(listOfRestraunt);
+  console.log(listOfRestraunt);
 
   //Conditional Rendering
 
@@ -80,7 +80,10 @@ const Body = () => {
       </div>
       <div className="Restra">
         {filterRes.map((restaurant) => (
-         <Link to={"/restaurant/" + restaurant.data.id}> <ResCard key={restaurant?.info.id} resData={restaurant?.info} /></Link>
+          <Link to={"/restaurant/" + restaurant?.info?.id}>
+            {" "}
+            <ResCard key={restaurant?.info.id} resData={restaurant?.info} />
+          </Link>
         ))}
       </div>
     </div>
