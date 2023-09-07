@@ -3,6 +3,7 @@ import resObj from "../utils/MockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestraunt, setListOfRestraunt] = useState([]);
@@ -31,7 +32,20 @@ const Body = () => {
     );
   };
 
-  console.log(listOfRestraunt);
+  //console.log(listOfRestraunt);
+
+  const onlineStatus = useOnlineStatus();
+
+
+  if(onlineStatus === false) return (
+    <h1>
+      Dude you are offline.
+    </h1>
+  );
+
+
+
+
 
   //Conditional Rendering
 
@@ -82,7 +96,7 @@ const Body = () => {
         {filterRes.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant?.info?.id}>
             {" "}
-            <ResCard key={restaurant?.info.id} resData={restaurant?.info} />
+            <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />
           </Link>
         ))}
       </div>

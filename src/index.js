@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React, { Children, Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -12,6 +12,11 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Header from "./Components/Header";
 import RestaurantMenu from './Components/RestaurantMenu';
+//import Grocery from './Components/Grocery';
+
+
+
+const Grocery = lazy(()=> import("./Components/Grocery"));
 
 const App = () => {
   return (
@@ -38,6 +43,10 @@ const App = () => {
       {
         path : "/contact",
         element: <Contact/>
+      },
+      {
+        path : "/grocery",
+        element: <Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense> 
       },
       {
         path : "/restaurant/:resId",
