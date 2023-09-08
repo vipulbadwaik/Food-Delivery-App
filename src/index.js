@@ -36,6 +36,7 @@ const App = () => {
         path: "/",
         element:<Body/>
       },
+     
       {
         path: "/about",
         element: <About/>

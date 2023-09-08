@@ -16,13 +16,13 @@ const ResCard = (props) => {
   //console.log(resData);
 
   return (
-    <div className="rescard">
-      <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{costForTwo + " "}</h4>
-      <h4>{deliveryTime} mins</h4>
-      <h4>{avgRating} stars</h4>
+    <div className="bg-[#D2E9E9] w-64 h-[390px] rounded-md m-7 hover:shadow-lg hover:shadow-current">
+      <img className="w-64 h-52 p-3 " src={CDN_URL + cloudinaryImageId} />
+      <h3 className="font-extrabold pl-3">{name}</h3>
+      <h4 className="pl-3 font-medium">{cuisines.join(", ")}</h4>
+      <h4 className="pl-3 font-medium">{costForTwo + " "}</h4>
+      <h4 className="pl-3 font-medium">{deliveryTime} mins</h4>
+      <h4 className="pl-3 font-medium">{avgRating} stars</h4>
     </div>
   );
 };

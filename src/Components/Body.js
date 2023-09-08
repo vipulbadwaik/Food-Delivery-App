@@ -52,19 +52,19 @@ const Body = () => {
   return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search-area">
+    <div className=" bg-[#2d2d30]">
+      <div className="flex p-2">
+        <div className="flex ">
           <input
             type="text"
-            className="search-inpt"
+            className="border-2 rounded-md mr-3"
             value={searchRestra}
             onChange={(e) => {
               setSearchRestra(e.target.value);
             }}
           />
           <button
-            className="search-btn"
+            className="bg-emerald-700 px-2 rounded-md text-white"
             onClick={() => {
               console.log(searchRestra);
 
@@ -80,7 +80,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="ml-10 bg-red-700 px-3 rounded-md text-white"
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
@@ -92,7 +92,7 @@ const Body = () => {
           Top Rated restaurant
         </button>
       </div>
-      <div className="Restra">
+      <div className="flex flex-wrap items-center">
         {filterRes.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant?.info?.id}>
             {" "}

@@ -13,25 +13,26 @@ const Header = () => {
 
 
   return (
-    <div className="header">
-      <img className="com-logo" src={LOGO_URL} />
+    <div className="flex justify-between shadow-lg shadow-white hover:shadow-xl hover:shadow-red-700 hover:transition-all ease-in delay-150">
+      <img className="w-24" src={LOGO_URL} />
 
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div className="flex ">
+        <ul className="flex items-center font-medium">
+          <li className="px-4">
             Online Status : {onlineStatus ? "🟢" : "🔴"}
           </li>
-          <li>Home</li>
+          <li className="px-4">
+            <Link to="/">Home</Link></li>
           <li>
             <Link to="/contact">Contact Us</Link></li>
-          <li>
+          <li className="px-4">
             <Link to="/about">About Us</Link></li>
             <li>
               <Link to="/grocery">Grocery</Link>
             </li>
-          <li>Cart</li>
+          <li className="px-4">Cart</li>
           <button
-            className="Login-btn"
+            className="px-2 py-2 bg-amber-500 rounded-md"
             onClick={() => {
              btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
             }}
