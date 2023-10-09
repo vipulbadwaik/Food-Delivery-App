@@ -13,7 +13,7 @@ const Header = () => {
 
 
   return (
-    <div className="flex justify-between shadow-lg shadow-white hover:shadow-xl hover:shadow-red-700 hover:transition-all ease-in delay-150">
+    <div className="flex bg-white justify-between shadow-md shadow-white hover:shadow-xl hover:shadow-red-700 hover:transition-all ease-in delay-150">
       <img className="w-24" src={LOGO_URL} />
 
       <div className="flex ">

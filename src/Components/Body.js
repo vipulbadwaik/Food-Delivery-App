@@ -1,4 +1,4 @@
-import ResCard from "./RestraurantCard";
+import ResCard,{withPromotedLabel} from "./RestraurantCard";
 import resObj from "../utils/MockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -12,6 +12,8 @@ const Body = () => {
 
   const [searchRestra, setSearchRestra] = useState("");
 
+  const RestaurantCardPromoted = withPromotedLabel(ResCard);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -23,7 +25,7 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
+    //console.log(json);
     setListOfRestraunt(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -52,7 +54,7 @@ const Body = () => {
   return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" bg-[#2d2d30]">
+    <div className=" bg-[#2d2d30] overflow-hidden">
       <div className="flex p-2">
         <div className="flex ">
           <input
@@ -96,7 +98,8 @@ const Body = () => {
         {filterRes.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant?.info?.id}>
             {" "}
-            <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />
+            {restaurant?.info?.promoted ? <RestaurantCardPromoted resData={restaurant?.info}/> : <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />}
+            
           </Link>
         ))}
       </div>

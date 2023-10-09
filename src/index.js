@@ -20,7 +20,7 @@ const Grocery = lazy(()=> import("./Components/Grocery"));
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="bg-[#2d2d30] overflow-hidden">
       <Header />
       
       <Outlet/>
