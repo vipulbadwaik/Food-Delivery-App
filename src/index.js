@@ -1,73 +1,79 @@
-import React, { Children, Suspense, lazy } from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React, { Children, Suspense, lazy } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from "./reportWebVitals";
 
-import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import Body from './Components/Body';
+import Body from "./Components/Body";
 import "./App.css";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Header from "./Components/Header";
-import RestaurantMenu from './Components/RestaurantMenu';
+import RestaurantMenu from "./Components/RestaurantMenu";
 //import Grocery from './Components/Grocery';
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./Components/Cart";
 
-
-
-const Grocery = lazy(()=> import("./Components/Grocery"));
+const Grocery = lazy(() => import("./Components/Grocery"));
 
 const App = () => {
   return (
-    <div className="bg-[#2d2d30] overflow-hidden">
-      <Header />
-      
-      <Outlet/>
-    </div>
+    <Provider store={appStore}>
+      <div className=" overflow-hidden">
+        <Header />
+
+        <Outlet />
+      </div>
+    </Provider>
   );
-}
- const appRouter = createBrowserRouter([
+};
+const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    children : [
+    element: <App />,
+    children: [
       {
         path: "/",
-        element:<Body/>
+        element: <Body />,
       },
-     
+
       {
         path: "/about",
-        element: <About/>
+        element: <About />,
       },
       {
-        path : "/contact",
-        element: <Contact/>
+        path: "/contact",
+        element: <Contact />,
       },
       {
-        path : "/grocery",
-        element: <Suspense fallback={<h1>Loading...</h1>}><Grocery/></Suspense> 
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
-        path : "/restaurant/:resId",
-        element: <RestaurantMenu/>
-      }
-    ]
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+    ],
   },
-  
-])
+]);
 
-
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>
-  <RouterProvider router={appRouter}/>
+  <RouterProvider router={appRouter} />
 );
 
 // If you want to start measuring performance in your app, pass a function

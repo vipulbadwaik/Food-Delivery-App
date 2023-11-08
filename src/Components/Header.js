@@ -3,14 +3,14 @@ import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import About from "./About";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
-
   const onlineStatus = useOnlineStatus();
 
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex bg-white justify-between shadow-md shadow-white hover:shadow-xl hover:shadow-red-700 hover:transition-all ease-in delay-150">
@@ -18,23 +18,29 @@ const Header = () => {
 
       <div className="flex ">
         <ul className="flex items-center font-medium">
+          <li className="px-4">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
           <li className="px-4">
-            Online Status : {onlineStatus ? "🟢" : "🔴"}
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
           </li>
           <li className="px-4">
-            <Link to="/">Home</Link></li>
+            <Link to="/about">About Us</Link>
+          </li>
           <li>
-            <Link to="/contact">Contact Us</Link></li>
-          <li className="px-4">
-            <Link to="/about">About Us</Link></li>
-            <li>
-              <Link to="/grocery">Grocery</Link>
-            </li>
-          <li className="px-4">Cart</li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
+
+          <li className="px-4 font-bold">
+            <Link to="/cart">Cart ({cartItems.length})</Link>
+          </li>
           <button
             className="px-2 py-2 bg-amber-500 rounded-md"
             onClick={() => {
-             btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
+              btnNameReact === "Login"
+                ? setBtnNameReact("Logout")
+                : setBtnNameReact("Login");
             }}
           >
             {btnNameReact}

@@ -54,7 +54,7 @@ const Body = () => {
   return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" bg-[#2d2d30] overflow-hidden">
+    <div className=" overflow-hidden">
       <div className="flex p-2">
         <div className="flex ">
           <input
