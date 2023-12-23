@@ -13,23 +13,23 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="flex bg-white justify-between shadow-md shadow-white hover:shadow-xl hover:shadow-red-700 hover:transition-all ease-in delay-150">
+    <div className="flex bg-white fixed w-full top-0 h-16 z-50 justify-between border-b-2  shadow-md shadow-white hover:shadow-md hover:shadow-red-700 hover:transition-all ease-in delay-150">
       <img className="w-24" src={LOGO_URL} />
 
       <div className="flex ">
         <ul className="flex items-center font-medium">
           <li className="px-4">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
-          <li className="px-4">
+          <li className="px-4 hover:text-red-600">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="hover:text-red-600">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4">
+          <li className="px-4 hover:text-red-600">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
-            <Link to="/grocery">Grocery</Link>
+          <li className="hover:text-red-600">
+            <Link to="/grocery ">Grocery</Link>
           </li>
 
           <li className="px-4 font-bold">

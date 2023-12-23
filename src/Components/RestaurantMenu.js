@@ -29,9 +29,10 @@ const RestaurantMenu = () => {
   console.log(categories);
 
   return (
-    <div className="text-center overflow-hidden">
+    <div className="text-center overflow-hidden ">
+    
       <h1 className="font-bold my-6 text-2xl text-white">
-        {resInfo?.cards[0]?.card?.card?.info?.name}
+        {resInfo?.cards[0]?.card?.card?.info?.name }
       </h1>
       <p className="font-bold text-white">
         {cuisines.join(", ")} - {costForTwoMessage}

@@ -13,7 +13,7 @@ const ItemList = ({ items }) => {
   };
 
   return (
-    <div>
+    <div className="">
       {items.map((items) => (
         <div
           key={items.card.info.id}
@@ -32,7 +32,7 @@ const ItemList = ({ items }) => {
 
             <p className="text-xs">{items.card.info.description}</p>
           </div>
-          <div className="w-3/12 p-4">
+          <div className="w-3/12 p-4 ">
             <div className="absolute">
               <button
                 className="p-2 mx-12 my-14 text-sm rounded-lg bg-black text-white shadow-lg"

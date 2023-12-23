@@ -1,4 +1,4 @@
-import ResCard,{withPromotedLabel} from "./RestraurantCard";
+import ResCard, { withPromotedLabel } from "./RestraurantCard";
 import resObj from "../utils/MockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -38,28 +38,19 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-
-  if(onlineStatus === false) return (
-    <h1>
-      Dude you are offline.
-    </h1>
-  );
-
-
-
-
+  if (onlineStatus === false) return <h1>Dude you are offline.</h1>;
 
   //Conditional Rendering
 
   return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" overflow-hidden">
-      <div className="flex p-2">
+    <div className=" overflow-hidden mt-20">
+      <div className="flex p-2 justify-center">
         <div className="flex ">
           <input
             type="text"
-            className="border-2 rounded-md mr-3"
+            className="border-2 rounded-md mr-1"
             value={searchRestra}
             onChange={(e) => {
               setSearchRestra(e.target.value);
@@ -82,7 +73,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="ml-10 bg-red-700 px-3 rounded-md text-white"
+          className="ml-10 bg-red-700 px-3 py-1 rounded-md text-white"
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
@@ -94,12 +85,15 @@ const Body = () => {
           Top Rated restaurant
         </button>
       </div>
-      <div className="flex flex-wrap items-center">
+      <div className="flex flex-wrap items-center mx-52">
         {filterRes.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant?.info?.id}>
             {" "}
-            {restaurant?.info?.promoted ? <RestaurantCardPromoted resData={restaurant?.info}/> : <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />}
-            
+            {restaurant?.info?.promoted ? (
+              <RestaurantCardPromoted resData={restaurant?.info} />
+            ) : (
+              <ResCard key={restaurant?.info?.id} resData={restaurant?.info} />
+            )}
           </Link>
         ))}
       </div>
