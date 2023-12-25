@@ -50,14 +50,14 @@ const Body = () => {
         <div className="flex ">
           <input
             type="text"
-            className="border-2 rounded-md mr-1"
+            className="border-2 rounded-l-md "
             value={searchRestra}
             onChange={(e) => {
               setSearchRestra(e.target.value);
             }}
           />
           <button
-            className="bg-emerald-700 px-2 rounded-md text-white"
+            className="bg-blue-800 px-2 rounded-r-lg text-white"
             onClick={() => {
               console.log(searchRestra);
 
@@ -73,7 +73,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="ml-10 bg-red-700 px-3 py-1 rounded-md text-white"
+          className="ml-10 bg-red-700 px-3 py-1 rounded-md  text-white"
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
@@ -82,7 +82,7 @@ const Body = () => {
             setFilterRes(filteredList);
           }}
         >
-          Top Rated restaurant
+          Top Rated ⭐
         </button>
       </div>
       <div className="flex flex-wrap items-center mx-52">
