@@ -13,7 +13,7 @@ const ResCard = (props) => {
     sla,
   } = resData;
 
-  console.log(resData);
+ // console.log(resData);
 
   return (
     <div className=" w-64 h-96  rounded-md m-1 hover:shadow-lg hover:shadow-current hover:text-red-600">
