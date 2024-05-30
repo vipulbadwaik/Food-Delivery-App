@@ -27,7 +27,7 @@ const Body = () => {
 
     const json = await data.json();
 
-    //console.log(json);
+    console.log(json);
     setListOfRestraunt(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -43,8 +43,8 @@ const Body = () => {
   if (onlineStatus === false) return <h1>Dude you are offline.</h1>;
 
   //Conditional Rendering
-
-  return listOfRestraunt.length === 0 || 'null' ? (
+  console.log(listOfRestraunt);
+  return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
     <div className=" overflow-hidden mt-20">
