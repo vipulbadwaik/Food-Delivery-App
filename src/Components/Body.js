@@ -42,13 +42,11 @@ const Body = () => {
   if (onlineStatus === false) return <h1>Dude you are offline.</h1>;
 
   //Conditional Rendering
-<<<<<<< HEAD
+
 
   return listOfRestraunt?.length === 0 || listOfRestraunt=== 'undefined' ? (
-=======
-  console.log(listOfRestraunt);
-  return listOfRestraunt.length === 0 ? (
->>>>>>> a0f2e92575f925c8d0326ee9ed686ca402a178e8
+
+ 
     <Shimmer />
   ) : (
     <div className=" overflow-hidden mt-20">
