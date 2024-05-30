@@ -16,23 +16,22 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-    console.log("Welcome!!!")
+    console.log("Welcome!!!");
   }, []);
 
   const fetchData = async () => {
-    
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.9684285&lng=73.0234408&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
 
-    //console.log(json);
+    console.log(json);
     setListOfRestraunt(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilterRes(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -44,7 +43,7 @@ const Body = () => {
 
   //Conditional Rendering
 
-  return listOfRestraunt.length === 0 || 'null' ? (
+  return listOfRestraunt?.length === 0 || listOfRestraunt=== 'undefined' ? (
     <Shimmer />
   ) : (
     <div className=" overflow-hidden mt-20">
@@ -88,7 +87,7 @@ const Body = () => {
         </button>
       </div>
       <div className="flex flex-wrap items-center mx-52">
-        {filterRes.map((restaurant) => (
+        {filterRes?.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant?.info?.id}>
             {" "}
             {restaurant?.info?.promoted ? (

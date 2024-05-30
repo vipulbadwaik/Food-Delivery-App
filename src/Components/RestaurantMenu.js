@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(resId);
 
-  console.log(resInfo);
+  //console.log(resInfo);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -28,9 +28,9 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-    console.log(name);
-  console.log(resInfo);
-  //console.log(categories);
+  //   console.log(name);
+  // console.log(resInfo);
+  console.log(categories);
 
   return (
     <div className="overflow-hidden mt-20  ">
