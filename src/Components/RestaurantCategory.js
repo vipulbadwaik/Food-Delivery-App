@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
+import { SquareArrowDown } from 'lucide-react';
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   //console.log(data);
@@ -17,7 +18,9 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
           <span className="font-semibold">
             {data.title} ({data.itemCards.length})
           </span>
-          <span>⬇️</span>
+          <span>
+            <SquareArrowDown fill="blue" color="white"/>
+          </span>
         </div>
 
         {showItems && <ItemList items={data.itemCards} />}
