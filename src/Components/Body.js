@@ -26,7 +26,7 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
+    //console.log(json);
     setListOfRestraunt(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -35,7 +35,7 @@ const Body = () => {
     );
   };
 
-  console.log(listOfRestraunt);
+  //console.log(listOfRestraunt);
 
   const onlineStatus = useOnlineStatus();
 
@@ -61,7 +61,7 @@ const Body = () => {
             }}
           />
           <button
-            className="bg-blue-800 px-2 rounded-r-lg text-white"
+            className="bg-blue-800 font-medium text-base px-2 rounded-r-lg text-white"
             onClick={() => {
               console.log(searchRestra);
 
@@ -73,11 +73,11 @@ const Body = () => {
               setFilterRes(filterRestra);
             }}
           >
-            Search
+            Search🔍
           </button>
         </div>
         <button
-          className="ml-10 bg-red-700 px-3 py-1 rounded-md  text-white"
+          className="ml-10 font-bold bg-red-700 px-3 py-1 rounded-md  text-white"
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
