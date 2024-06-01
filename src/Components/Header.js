@@ -20,13 +20,13 @@ const Header = () => {
         <ul className="flex items-center font-medium">
           <li className="px-4 font-bold">Online Status : {onlineStatus ? "🟢" : "🔴"}</li>
           <li className="px-4 font-bold hover:text-red-600">
-            <Link to="/">Home</Link>
+            <Link to="/">Home🏠</Link>
           </li>
           <li className="font-bold hover:text-red-600">
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact">Contact Us☎️</Link>
           </li>
           <li className="px-4 font-bold hover:text-red-600">
-            <Link to="/about">About Us</Link>
+            <Link to="/about">About Us🤔</Link>
           </li>
          
 
