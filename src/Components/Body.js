@@ -81,7 +81,7 @@ const Body = () => {
           onClick={() => {
             console.log("Button Clicked");
             const filteredList = listOfRestraunt.filter(
-              (res) => res?.info?.avgRating > 4
+              (res) => res?.info?.avgRating > 4.3
             );
             setFilterRes(filteredList);
           }}
